@@ -31,6 +31,11 @@ _render = (res,view,data)->
 	res.render __dirname+'/views/'+view+'.jade',data
 	return
 
+app.use(req, res, next) ->
+	res.header("Access-Control-Allow-Origin", "*")
+	res.header("Access-Control-Allow-Headers", "X-Requested-With")
+	next()
+
 app.get '/style.css', (req,res)->
 	styl = fs.readFileSync(__dirname+'/views/item.styl',{encoding:'utf8'})
 	stylus.render styl,(err,css)->
