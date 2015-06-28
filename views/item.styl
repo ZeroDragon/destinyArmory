@@ -1,0 +1,124 @@
+@import url('http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400')
+.destinyArmoryHolder
+	position absolute
+	display none
+	transform translate(0,0)
+
+.itemHolder
+	*
+		box-sizing border-box
+	width 350px
+	display inline-block
+	background-color #000000
+	color #ffffff
+	font-family 'Open Sans', sans-serif
+	padding-bottom 10px
+	.itemHeader
+		&.tier6
+			background-color #cdaf00
+		&.tier5
+			background-color #522F65
+		&.tier4
+			background-color #5076A3
+		&.tier3
+			background-color #366F42
+		&.tier2
+			background-color #C3BCB4
+		
+		white-space nowrap
+		display flex
+		position relative
+		justify-content space-between
+		.icon
+			img
+				width 60px
+				margin-right 10px
+		.itemDesc
+			padding-top	5px
+			flex-grow 2
+			.name
+				font-size 22px
+			.type
+				font-size 14px
+				font-weight 700
+				opacity 0.9
+		.tier
+			position absolute
+			font-size 14px
+			font-weight 700
+			opacity 0.65
+			bottom 5px
+			right 10px
+	.dps
+		display flex
+		padding 5px 10px
+		align-items center
+		.current
+			font-size 45px
+			font-weight 700
+			line-height 45px
+		.max
+			padding-left 10px
+			color #bbb
+			line-height 20px
+	.tagline
+		padding 0 10px
+		font-size 14px
+		line-height 18px
+		font-style italic
+	.line
+		margin 10px
+		border-bottom	1px solid #666666
+	.stats
+		padding 0 10px
+		.stat
+			display flex
+			justify-content flex-end
+			&:not(:last-child)
+				margin-bottom 5px
+			&>div
+				font-size 14px
+			.label
+				text-align right
+				padding-right 7px
+				color #ddd
+				overflow hidden
+				text-overflow ellipsis
+				width 120px
+				white-space nowrap
+			.chart
+				width 170px
+				height 20px
+				background-color #666
+				.bar
+					height 100%
+					background-color #ddd
+			.value
+				padding-left 7px
+				width 40px
+				color #666
+				line-height 20px
+				font-size 12px
+			.valueTotal
+				width 210px
+	.perks
+		.perk
+			padding 0 10px
+			font-size 0
+			&>div
+				display inline-block
+				vertical-align top
+			.img
+				width 40px
+				height 40px
+				margin-right 10px
+				img
+					width 100%
+			.desc
+				font-size 12px
+				width 80%
+	.itemType
+		text-align right
+		padding 0 10px
+		font-size 10px
+		color #666

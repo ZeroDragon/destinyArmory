@@ -1,0 +1,49 @@
+.itemHolder
+	.itemHeader(class="tier#{data.inventoryItem.tierType}")
+		.icon: img(src="http://www.bungie.net#{data.inventoryItem.icon}")
+		.itemDesc
+			.name #{data.inventoryItem.itemName}
+			.type #{data.inventoryItem.itemTypeName}
+		.tier #{data.inventoryItem.tierTypeName}
+
+	.dps
+		- var primary = data.inventoryItem.primaryBaseStatHash
+		.current #{data.inventoryItem.stats[primary].minimum}
+		.max
+			|/ #{data.inventoryItem.stats[primary].maximum}
+			br
+			|#{definitions.stats[primary].statName.toUpperCase()}
+
+	.tagline #{data.inventoryItem.itemDescription}
+	.line
+	.stats
+		for val,stat in data.inventoryItem.stats
+			if stat != '368428387' && stat != '3871231066' && stat != '3897883278'
+				.stat
+					.label #{definitions.stats[stat].statName}
+					if primary != '3897883278'
+						.chart: .bar(style="width:#{data.inventoryItem.stats[stat].value}%;")
+						.value #{data.inventoryItem.stats[stat].value}
+					if primary == '3897883278'
+						.valueTotal
+							|#{data.inventoryItem.stats[stat].minimum}
+							| / 
+							|#{data.inventoryItem.stats[stat].maximum}
+		if primary != '3897883278'
+			.stat
+				.label #{definitions.stats['3871231066'].statName}
+				.valueTotal #{data.inventoryItem.stats['3871231066'].value}
+	- var totalPerks = 0
+	for perk,k in definitions.perks
+		if perk.isDisplayable == true
+			- totalPerks++
+	if totalPerks < 4 && totalPerks > 0
+		.line
+		.perks
+			for perk,k in definitions.perks
+				if perk.isDisplayable == true
+					.perk
+						.img: img(src="http://www.bungie.net#{perk.displayIcon}")
+						.desc #{perk.displayDescription}
+	.line
+	.itemType #{definitions.buckets[data.inventoryItem.bucketTypeHash].bucketName}
