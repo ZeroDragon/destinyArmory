@@ -71,4 +71,4 @@ app.get '/:id/:lan?', (req,res)->
 
 startWebServer = ->
 	app.listen 8080, ->
-		console.log 'Webserver online: http://localhost:8080'.magenta.underline
+		console.log 'Webserver online:','http://localhost:8080'.magenta.underline
