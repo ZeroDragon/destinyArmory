@@ -1,45 +1,88 @@
-script(src="https://code.jquery.com/jquery-1.11.3.min.js")
-script(src="/destinyArmory.js")
-link(rel="stylesheet" type="text/css" href="/style.css")
-div
-	| Este es un texto que contiene un texto largo con muchas letras y un
-	| <span data-item="1274330687" data-lan="es" class="destinyArmory">link al garrafon.</span> en español
-	br
-	br
-	br
-	br
-	br
-	br
-	br
-	br
-	br
-	br
-	br
-	br
-	br
-	br
-	| otro <span data-item="1274330687" data-lan="de" class="destinyArmory">link al garrafon.</span> en aleman
-	br
-	br
-	br
-	br
-	br
-	br
-	br
-	br
-	br
-	br
-	br
-	br
-	br
-	br
-	br
-	br
-	br
-	br
-	br
-	br
-	br
-	br
-	br
-	| Y otro <span data-item="1274330687" class="destinyArmory">link al garrafon.</span> en ingles
+doctype html
+head
+	script(src="https://code.jquery.com/jquery-1.11.3.min.js")
+	script(src="/destinyArmory.js")
+	link(rel="stylesheet", type="text/css" href="/style.css")
+	link(rel="stylesheet", type="text/css" href="https://cdn.rawgit.com/sindresorhus/github-markdown-css/gh-pages/github-markdown.css")
+	title Destiny Armory
+
+body.markdown-body(style="overflow:auto;")
+
+	h1 Destiny Armory
+	p This page is a demonstration of how to use this script on your page
+	p
+		|Destiny Armory is based on the great work of the guys from 
+		a(href="http://destinydb.com") destinydb.com
+		|  but shares zero code from them.<br/>
+		|Also this script supports multiple languages, thing that they don't do actually.
+
+
+	h2 Setup
+	p You'll need jquery to make this work
+	pre
+		| #{'<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>'}
+
+	p Then just add the script anywhere in your site (head works best) just after jquery.
+	pre
+		| #{'<script src="http://floresbenavides.com:8080/destinyArmory.js"></script>'}
+		| #{'<link rel="stylesheet" type="text/css" href="http://floresbenavides.com:8080/style.css"/>'}
+
+	p Now anywhere you want to display a popup with the item info just add this params to the desired tag:
+	
+	p: b data-item="ITEM-ID" (REQUIRED)
+	p The id of the item to display, currently can be displayed weapons or armor only
+
+	p: b data-lan="LANGUAGE-CODE" (OPTIONAL)
+	p The language to display the popup. It can be "en", "fr", "es", "de", "it", "ja" or "pt-br". Defaults to "en"
+
+	p: b class="destinyArmory" (REQUIRED)
+	p Add this class to the tag, so the script can identify it and attach the event
+
+	h2 Working demo
+	p Lets bring the <b>Gjallarhorn</b> to display in every available language.
+	p For this we'll use this code:
+	pre
+		| #{'<span class="destinyArmory" data-item="1274330687" data-lan="en">Gjallarhorn</span>'}
+		| #{'<span class="destinyArmory" data-item="1274330687" data-lan="fr">Gjallarhorn</span>'}
+		| #{'<span class="destinyArmory" data-item="1274330687" data-lan="es">Gjallarhorn</span>'}
+		| #{'<span class="destinyArmory" data-item="1274330687" data-lan="de">Gjallarhorn</span>'}
+		| #{'<span class="destinyArmory" data-item="1274330687" data-lan="it">Gjallarhorn</span>'}
+		| #{'<span class="destinyArmory" data-item="1274330687" data-lan="ja">Gjallarhorn</span>'}
+		| #{'<span class="destinyArmory" data-item="1274330687" data-lan="pt-br">Gjallarhorn</span>'}
+
+	ul
+		li: div: span(data-item="1274330687",data-lan="en").destinyArmory Gjallarhorn [en]
+		li: div: span(data-item="1274330687",data-lan="fr").destinyArmory Gjallarhorn [fr]
+		li: div: span(data-item="1274330687",data-lan="es").destinyArmory Gjallarhorn [es]
+		li: div: span(data-item="1274330687",data-lan="de").destinyArmory Gjallarhorn [de]
+		li: div: span(data-item="1274330687",data-lan="it").destinyArmory Gjallarhorn [it]
+		li: div: span(data-item="1274330687",data-lan="ja").destinyArmory Gjallarhorn [ja]
+		li: div: span(data-item="1274330687",data-lan="pt-br").destinyArmory Gjallarhorn [pt-br]
+
+	p Have fun, don't forget to share.
+
+	h3 Database update and scheduled downtime.
+	p I'll stop the service, delete the whole database and restart once a week every <b>Wednesday</b> at <b>00:00 (CTS).</b> To keep the information up to date with <a href="http://bungie.net">bungie.net</a>. The process will take up to 3 minutes and will pull new data from bungie as it is necesary. This will mean that if you are trying to use the script at that time things can happen.
+
+	h3 TODO:
+	ul
+		li CSS support for safari and firefox (dont even trying with IE)
+		li Discard the need of jquery
+		li Get a domain and a server
+		li(style="text-decoration:line-through;") buy milk
+
+	h3 Found a bug?
+	p Currently I have this code working on my small server, downtimes are not the rule but can be expected. If you want to host it, just fork it and hit <pre>npm install</pre>
+	p Pull requests are accepted and encouraged!
+	p Or if you want to be a <b>LEGEND</b> hit me on paypal or bitcoin. So I can afford a bigger server and a proper domain :)
+	ul
+		li <b>Paypal:</b> zr.drgn@gmail.com
+		li <b>Bitcoin:</b> 18BEZcFTEsAghpGBZGx97pXwLtbrEWf3nw
+
+	h3 Thankyou
+	p WOW, you got this far reading! You rock!
+
+
+	div(style="margin-bottom:50px;")
+
+	<a target="_blank" href="https://github.com/zerodragon/destinyArmory"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png"></a>
