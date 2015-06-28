@@ -1,5 +1,5 @@
 {
-  "name": "destinyItems",
+  "name": "destinyArmory",
   "version": "1.0.0",
   "description": "inventory plugin",
   "main": "index.js",
