@@ -1,7 +1,7 @@
 displayItem = (item,lan)->
 	lan ?= 'en'
 	holder = $('<div/>',{id:'destinyArmory'+item,'class':'destinyArmoryHolder'})
-	$.get '/'+item+'/'+lan, (html)->
+	$.get 'http://floresbenavides.com:8080/'+item+'/'+lan, (html)->
 		holder.html html
 		$('body').append holder
 		return
