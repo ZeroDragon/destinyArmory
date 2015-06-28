@@ -6,15 +6,15 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "ZeroDragon",
+  "author": "ZeroDragon (npm@zerothedragon.com)",
   "license": "MIT",
   "dependencies": {
-    "coffee-script": "^1.9.3",
-    "consolecolors": "^0.33.2-b",
-    "express": "^4.13.0",
-    "jade": "^1.11.0",
-    "request": "^2.58.0",
-    "sqlite3": "^3.0.8",
-    "stylus": "^0.51.1"
+    "coffee-script": "1.9.3",
+    "consolecolors": "0.33.2-b",
+    "express": "4.13.0",
+    "jade": "1.11.0",
+    "request": "2.58.0",
+    "sqlite3": "3.0.8",
+    "stylus": "0.51.1"
   }
 }
